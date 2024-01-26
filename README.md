@@ -45,10 +45,14 @@ choco install -y nodej.install openjdk8
 
 _Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
-_Una vez descargado el proyecto, desde terminal ejecuta la orden para inicializar_
-
+* Una vez descargado el proyecto, desde terminal ejecuta la orden para inicializar
 ```
 npm start
+```
+
+* El proyecto hace uso de [React Navigation](https://reactnavigation.org) para la navegación.
+```
+npm install @react-navigation/native-stack
 ```
 
 ## Ejecutando las pruebas (Aún no hay pruebas) ⚙️
