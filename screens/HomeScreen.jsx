@@ -31,7 +31,7 @@ const HomeScreen = () => {
             text='Day 01 - Warm Up'
             subtitle={'07:00 - 08:00 AM'}
             ImageSource={require('../images/00_image.jpg')}
-            //onPress={() => navigation.navigate('WorkoutDetail')} 
+            onPress={() => navigation.navigate('WorkoutDetail')} 
             />
         </View>
 
@@ -48,20 +48,20 @@ const HomeScreen = () => {
             text='Learn the Basics of Training'
             subtitle={'06 Workouts for Beginner'}
             ImageSource={require('../images/begginer.jpg')}
-            //onPress={() => navigation.navigate('WorkoutDetail')}
+            onPress={() => navigation.navigate('WorkoutDetail')}
             style={{ marginLeft: 40 }} />
           <CardView
             text='Learn Mixed Martial Arts'
             subtitle={'+6 different disciplines'}
             ImageSource={require('../images/mma.jpg')}
-            //onPress={() => navigation.navigate('WorkoutDetail')}
+            onPress={() => navigation.navigate('WorkoutDetail')}
             style={{ marginLeft: 40 }} />
 
           <CardView
             text='Fitness life'
             subtitle={'Excercises for the day to day'}
             ImageSource={require('../images/everyday.jpg')}
-            //onPress={() => navigation.navigate('WorkoutDetail')}
+            onPress={() => navigation.navigate('WorkoutDetail')}
             style={{ marginLeft: 40 }} />
         </ScrollView>
 
@@ -69,7 +69,7 @@ const HomeScreen = () => {
         <View style={Styles.infoTextView}>
           <Text style={Styles.text}>Our trainers</Text>
           <Text style={Styles.textColor} 
-          //onPress={() => navigation.navigate('TrainersList')}
+            onPress={() => navigation.navigate('TrainersList')}
           >See All</Text>
         </View>
         {/* newWorkoutsCards */}
@@ -79,7 +79,7 @@ const HomeScreen = () => {
             subtitle='MMA Trainer'
             ImageSource={require('../images/submission.jpg')}
             isPremium={true}
-            //onPress={() => navigation.navigate('TrainerDetail')} 
+            onPress={() => navigation.navigate('TrainerDetail')} 
             />
 
           <CardViewSquare
@@ -87,7 +87,7 @@ const HomeScreen = () => {
             subtitle='Crossfit Trainer'
             ImageSource={require('../images/trainer.jpg')}
             isPremium={false}
-            //onPress={() => navigation.navigate('TrainerDetail')} 
+            onPress={() => navigation.navigate('TrainerDetail')} 
             />
         </ScrollView>
       </ScrollView>

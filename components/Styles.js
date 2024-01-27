@@ -9,7 +9,7 @@ export default StyleSheet.create({
         position: 'absolute',
         top: '93%',
         width: '100%',
-        height: 600,
+        height: '400%',
         borderRadius: 25,
         backgroundColor: '#1C1C1E',
     },
@@ -176,7 +176,7 @@ export default StyleSheet.create({
 
     // ------componentStyles------
     topImage: {
-        width: 400,
+        width: '100%',
         height: 300,
     },
     slashImage: {
