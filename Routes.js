@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from './screens/HomeScreen';
 import WorkoutDetail from './screens/WorkoutDetail';
 import WorkoutCategories from './screens/WorkoutCategories';
+import SubscriptionType from './screens/SubscriptionType';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutDetail' component={WorkoutDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutCategories' component={WorkoutCategories} options={{ headerShown: false }} />
+                <Stack.Screen name='SubscriptionType' component={SubscriptionType} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     )

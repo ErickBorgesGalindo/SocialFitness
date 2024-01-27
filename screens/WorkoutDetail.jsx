@@ -11,7 +11,7 @@ import PopUpView from '../components/PopUpView';
 
 const WorkoutDetail = () => {
     const navigation = useNavigation();
-    const userPremium = true;
+    const userPremium = false;
 
     return (
         <View>
@@ -126,7 +126,7 @@ const WorkoutDetail = () => {
                         popUpTitle='Upgrade to Premium'
                         popUpSubtitle='Subscribe to take an appoinment'
                         btnTitle='Be Premium'
-                        onPress={() => navigation.navigate('PaymentTime')}
+                        onPress={() => navigation.navigate('SubscriptionType')}
                         cancelOnPress={() => navigation.goBack()} />
             }
         </View>
