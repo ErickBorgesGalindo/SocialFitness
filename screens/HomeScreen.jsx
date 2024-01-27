@@ -38,9 +38,7 @@ const HomeScreen = () => {
         {/* workoutCategories */}
         <View style={Styles.infoTextView}>
           <Text style={Styles.text}>Workout Categories</Text>
-          <Text style={Styles.textColor} 
-            //onPress={() => navigation.navigate('WorkoutCategories')}
-            >See All</Text>
+          <Text style={Styles.textColor} onPress={() => navigation.navigate('WorkoutCategories')}>See All</Text>
         </View>
         {/* categoriesCards */}
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexGrow: 0, marginRight: 20 }}>
