@@ -62,7 +62,7 @@ const SubscriptionType = () => {
             <View style={{ top: '34%' }}>
                 <CustomBtn
                     title='Subscribe Now'
-                    onPress={() => navigation.navigate('PaymentMethod')} />
+                    onPress={() => navigation.navigate('FitnessTrainers')} />
             </View>
         </View>
     )
