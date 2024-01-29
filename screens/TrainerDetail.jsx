@@ -81,7 +81,7 @@ const TrainerDetail = () => {
                             <Text>174</Text>
                         </View>
                     </View>
-                    <Pressable style={{ marginTop: 30, marginRight: 30 }} onPress={() => navigation.navigate('TrainerReviews')}>
+                    <Pressable style={{ marginTop: 30, marginRight: 30 }} onPress={() => navigation.navigate('TrainerReview')}>
                         <Text style={Styles.textColor}>Read all reviews</Text>
                     </Pressable>
                 </View>

@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 import Styles from '../components/Styles';
 import React from 'react';
 
-const Review = ({review, time, user, image}) => {
+const Review = ({review, time, user, image, type}) => {
     return (
         <View style={[styles.review, { height: 'auto' }]}>
             <View style={styles.topReview}>

@@ -7,6 +7,7 @@ import WorkoutCategories from './screens/WorkoutCategories';
 import SubscriptionType from './screens/SubscriptionType';
 import FitnessTrainers from './screens/FitnessTrainers';
 import TrainerDetail from './screens/TrainerDetail';
+import TrainerReviews from './screens/TrainerReviews';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='SubscriptionType' component={SubscriptionType} options={{ headerShown: false }} />
                 <Stack.Screen name='FitnessTrainers' component={FitnessTrainers} options={{ headerShown: false }} />
                 <Stack.Screen name='TrainerDetail' component={TrainerDetail} options={{ headerShown: false }} />
+                <Stack.Screen name='TrainerReview' component={TrainerReviews} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     )
