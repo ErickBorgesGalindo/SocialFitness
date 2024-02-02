@@ -67,7 +67,7 @@ const HomeScreen = () => {
         <View style={Styles.infoTextView}>
           <Text style={Styles.text}>Our trainers</Text>
           <Text style={Styles.textColor} 
-            onPress={() => navigation.navigate('TrainersList')}
+            onPress={() => navigation.navigate('FitnessTrainers')}
           >See All</Text>
         </View>
         {/* newWorkoutsCards */}

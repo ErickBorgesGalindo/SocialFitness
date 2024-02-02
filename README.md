@@ -55,6 +55,11 @@ npm start
 npm install @react-navigation/native-stack
 ```
 
+* El proyecto hace uso de [React Native Ratings](https://github.com/Monte9/react-native-ratings#readme) para los review.
+```
+npm install @react-native-ratings
+```
+
 ## Ejecutando las pruebas (Aún no hay pruebas) ⚙️
 
 _Explica como ejecutar las pruebas automatizadas para este sistema_
