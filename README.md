@@ -55,9 +55,14 @@ npm start
 npm install @react-navigation/native-stack
 ```
 
-* El proyecto hace uso de [React Native Ratings](https://github.com/Monte9/react-native-ratings#readme) para los review.
+* Se incluyó el uso de [React Native Ratings](https://github.com/Monte9/react-native-ratings#readme) para los review.
 ```
 npm install @react-native-ratings
+```
+
+* Ademas es necesario instalar [React Native Calendar Picker](https://github.com/stephy/CalendarPicker) para los appointment.
+```
+npm install --save react-native-calendar-picker
 ```
 
 ## Ejecutando las pruebas (Aún no hay pruebas) ⚙️

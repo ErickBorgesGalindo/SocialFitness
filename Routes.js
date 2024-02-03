@@ -9,6 +9,7 @@ import FitnessTrainers from './screens/FitnessTrainers';
 import TrainerDetail from './screens/TrainerDetail';
 import TrainerReviews from './screens/TrainerReviews';
 import TrainerWriteReview from './screens/TrainerWriteReview';
+import TrainerAppoinment from './screens/TrainerAppoinment';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -24,6 +25,8 @@ const StackNavigator = () => {
                 <Stack.Screen name='TrainerDetail' component={TrainerDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='TrainerReview' component={TrainerReviews} options={{ headerShown: false }} />
                 <Stack.Screen name='WriteReview' component={TrainerWriteReview} options={{ headerShown: false }} />
+                <Stack.Screen name='Appoinment' component={TrainerAppoinment} options={{ headerShown: false }} />
+
             </Stack.Navigator>
         </NavigationContainer>
     )
