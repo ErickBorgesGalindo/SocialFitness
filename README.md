@@ -65,6 +65,13 @@ npm install @react-native-ratings
 npm install --save react-native-calendar-picker
 ```
 
+* Para la reproducción de video hacemos uso de [Expo-Av](https://docs.expo.dev/versions/latest/sdk/av/) y tambien de [React Native Comunity Slider](https://github.com/callstack/react-native-slider).
+```
+npm install expo-av
+
+npm install @react-native-community/slider --save
+```
+
 ## Ejecutando las pruebas (Aún no hay pruebas) ⚙️
 
 _Explica como ejecutar las pruebas automatizadas para este sistema_

@@ -11,7 +11,7 @@ import PopUpView from '../components/PopUpView';
 
 const WorkoutDetail = () => {
     const navigation = useNavigation();
-    const userPremium = false;
+    const userPremium = true;
 
     return (
         <View>

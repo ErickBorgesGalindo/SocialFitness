@@ -13,6 +13,7 @@ import TrainerAppoinment from './screens/TrainerAppoinment';
 import Payment from './screens/Payment';
 import PaymentCardDetail from './screens/PaymentCardDetail';
 import PaymentComplete from './screens/PaymentComplete';
+import VideoScreen from './screens/VideoScreen';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -32,7 +33,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Payment'component={Payment} options={{headerShown:false}}/>
                 <Stack.Screen name='CardDetail'component={PaymentCardDetail} options={{headerShown:false}}/>
                 <Stack.Screen name='PaymentComplete'component={PaymentComplete} options={{headerShown:false}}/>
-
+                <Stack.Screen name='Video'component={VideoScreen} options={{headerShown:false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
