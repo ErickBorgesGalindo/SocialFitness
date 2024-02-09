@@ -12,6 +12,7 @@ import TrainerWriteReview from './screens/TrainerWriteReview';
 import TrainerAppoinment from './screens/TrainerAppoinment';
 import Payment from './screens/Payment';
 import PaymentCardDetail from './screens/PaymentCardDetail';
+import PaymentComplete from './screens/PaymentComplete';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Appoinment' component={TrainerAppoinment} options={{ headerShown: false }} />
                 <Stack.Screen name='Payment'component={Payment} options={{headerShown:false}}/>
                 <Stack.Screen name='CardDetail'component={PaymentCardDetail} options={{headerShown:false}}/>
+                <Stack.Screen name='PaymentComplete'component={PaymentComplete} options={{headerShown:false}}/>
 
             </Stack.Navigator>
         </NavigationContainer>
