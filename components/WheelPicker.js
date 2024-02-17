@@ -3,7 +3,7 @@ import { Animated, Text, View } from 'react-native';
 
 const WheelPicker = (props) => {
 
-  const { items, onIndexChange, itemHeight } = props;
+  const { items, onIndexChange, itemHeight, typeUse } = props;
 
   const scrollY = useRef(new Animated.Value(0)).current;
 
@@ -30,7 +30,7 @@ const WheelPicker = (props) => {
     return (
       <Animated.View
         style={[
-          { height: itemHeight, width:80,transform: [{ scale }], opacity },
+          { height: itemHeight, width: typeUse ? 400 : 80, transform: [{ scale }], opacity },
           styles.animatedContainer,
         ]}
       >
@@ -66,7 +66,7 @@ const WheelPicker = (props) => {
           index,
         })}
       />
-      <View style={[styles.indicatorHolder, { top: itemHeight }]}>
+      <View style={[styles.indicatorHolder, { top: itemHeight, left: typeUse ? '35%':'-25%', }]}>
         <View style={[styles.indicator]} />
         <View style={[styles.indicator, { marginTop: itemHeight }]} />
       </View>
@@ -84,7 +84,6 @@ const styles = {
   },
   indicatorHolder: {
     position: 'absolute',
-    left:'-25%',
   },
   indicator: {
     width: 120,

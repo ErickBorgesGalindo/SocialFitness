@@ -30,7 +30,7 @@ const UserLevel = () => {
 
             {/* ageSelector */}
             <View style={{ marginTop: '10%', alignSelf: 'center', top: '10%' }}>
-                <GoalPicker items={data} onIndexChange={handleValueChange} itemHeight={50} />
+                <GoalPicker items={data} typeUse={'text'} onIndexChange={handleValueChange} itemHeight={50} />
             </View>
 
             {/* customBtn, backBtn */}
