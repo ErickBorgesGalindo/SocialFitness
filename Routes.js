@@ -14,6 +14,7 @@ import Payment from './screens/Payment';
 import PaymentCardDetail from './screens/PaymentCardDetail';
 import PaymentComplete from './screens/PaymentComplete';
 import VideoScreen from './screens/VideoScreen';
+import Login from './screens/Login';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -21,6 +22,7 @@ const StackNavigator = () => {
     return(
         <NavigationContainer>
             <Stack.Navigator>
+                <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutDetail' component={WorkoutDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutCategories' component={WorkoutCategories} options={{ headerShown: false }} />

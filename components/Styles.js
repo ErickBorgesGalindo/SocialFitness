@@ -180,7 +180,7 @@ export default StyleSheet.create({
         height: 300,
     },
     slashImage: {
-        width: 400,
+        width: '100%',
         height: 550,
       },
     input: {
