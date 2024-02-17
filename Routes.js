@@ -19,6 +19,7 @@ import ForgotPassword from './screens/ForgotPassword';
 import Verification from './screens/Verification';
 import UserGender from './screens/UserGender';
 import UserAge from './screens/UserAge';
+import UserWeight from './screens/UserWeight';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ const StackNavigator = () => {
             <Stack.Navigator>
                 <Stack.Screen name='Gender' component={UserGender} options={{ headerShown: false }} />
                 <Stack.Screen name='Age' component={UserAge} options={{ headerShown: false }} />
+                <Stack.Screen name='Weight' component={UserWeight} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown: false}} />
                 <Stack.Screen name='Verification' component={Verification} options={{headerShown: false}} />
