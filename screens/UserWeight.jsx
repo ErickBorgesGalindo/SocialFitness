@@ -38,7 +38,7 @@ const UserWeight = () => {
             {/* customBtn, backBtn */}
             <View style={{ marginRight: 20, marginTop: '30%' }}>
                 <BackBtn onPress={() => navigation.goBack()} />
-                <CustomBtn title='Next' style={{ width: '30%', alignSelf: 'flex-end' }} onPress={() => navigation.navigate('Goal')} />
+                <CustomBtn title='Next' style={{ width: '30%', alignSelf: 'flex-end' }} onPress={() => navigation.navigate('Height')} />
             </View>
 
 
