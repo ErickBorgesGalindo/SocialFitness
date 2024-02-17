@@ -20,6 +20,8 @@ const InputWeight = ({ onInputChange }) => {
           onChangeText={handleInputChange}
           maxLength={6}
           keyboardType="numeric"
+          placeholder='50'
+          placeholderTextColor={'#5A5A5A'}
         />
         <Text style={{ color: 'white', alignSelf: 'flex-end', fontSize: 20, marginBottom: '5%' }}>Kg</Text>
       </View>
@@ -37,8 +39,10 @@ const styles = StyleSheet.create({
   input: {
     height: 100,
     borderWidth: 1,
-    borderColor: 'transparent',
     borderBottomColor: '#D0FD3E',
+    borderTopColor: 'transparent',
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
     color: '#fff',
     fontSize: 50
   },
