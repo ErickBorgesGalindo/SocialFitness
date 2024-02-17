@@ -17,6 +17,7 @@ import VideoScreen from './screens/VideoScreen';
 import Login from './screens/Login';
 import ForgotPassword from './screens/ForgotPassword';
 import Verification from './screens/Verification';
+import UserGender from './screens/UserGender';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -24,6 +25,7 @@ const StackNavigator = () => {
     return(
         <NavigationContainer>
             <Stack.Navigator>
+                <Stack.Screen name='Gender' component={UserGender} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown: false}} />
                 <Stack.Screen name='Verification' component={Verification} options={{headerShown: false}} />
