@@ -15,6 +15,8 @@ import PaymentCardDetail from './screens/PaymentCardDetail';
 import PaymentComplete from './screens/PaymentComplete';
 import VideoScreen from './screens/VideoScreen';
 import Login from './screens/Login';
+import ForgotPassword from './screens/ForgotPassword';
+import Verification from './screens/Verification';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -23,6 +25,8 @@ const StackNavigator = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
+                <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown: false}} />
+                <Stack.Screen name='Verification' component={Verification} options={{headerShown: false}} />
                 <Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutDetail' component={WorkoutDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutCategories' component={WorkoutCategories} options={{ headerShown: false }} />
