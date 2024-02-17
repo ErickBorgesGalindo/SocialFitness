@@ -22,6 +22,7 @@ import UserAge from './screens/UserAge';
 import UserWeight from './screens/UserWeight';
 import UserHeight from './screens/UserHeight';
 import UserGoal from './screens/UserGoal';
+import UserLevel from './screens/UserLevel';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -34,6 +35,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Weight' component={UserWeight} options={{ headerShown: false }} />
                 <Stack.Screen name='Height' component={UserHeight} options={{ headerShown: false }} />
                 <Stack.Screen name='Goal' component={UserGoal} options={{ headerShown: false }} />
+                <Stack.Screen name='ActivityLevel' component={UserLevel} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown: false}} />
                 <Stack.Screen name='Verification' component={Verification} options={{headerShown: false}} />
