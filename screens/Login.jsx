@@ -1,4 +1,4 @@
-import { View, Text, Image, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Image, Pressable, StyleSheet, Platform } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 //Styles
@@ -75,7 +75,7 @@ const Login = () => {
                     </View>
 
                     {/* forgotPassword */}
-                    <View style={{ position: 'absolute', top: '125%', alignSelf: 'flex-end', right: '05%' }}>
+                    <View style={{ position: 'absolute', top:  Platform.OS == 'ios' ? '125%' : '115%' , alignSelf: 'flex-end', right: '05%' }}>
                         <Pressable onPress={() => navigation.navigate("ForgotPassword")}>
                             <Text style={{ color: '#D0FD3E', fontSize: 15, fontWeight: '600' }}>Forgot Password</Text>
                         </Pressable>
@@ -118,7 +118,7 @@ const Login = () => {
                     </View>
 
                     {/* textView */}
-                    <View style={{ ...Styles.slashTxt, top: '50%' }}>
+                    <View style={{ ...Styles.slashTxt, top: '40%' }}>
                         <Text style={styles.WelcomeText}>WELCOME BUDY,</Text>
                         {/* infoView */}
                         <View style={{ width: '90%', top: '03%' }}>
@@ -127,7 +127,7 @@ const Login = () => {
                     </View>
 
                     {/* container */}
-                    <View style={{ ...Styles.slashView, top: '70%' }} />
+                    <View style={{ ...Styles.slashView, top: '57%', height:'200%' }} />
 
                     {/* inputs */}
                     <View style={styles.Inputs}>
@@ -215,13 +215,13 @@ const styles = StyleSheet.create({
 
     Inputs:{
         position: 'absolute', 
-        top: '95%', 
+        top: Platform.OS == 'ios' ? '95%' : '87%', 
         marginHorizontal: 20
     },
 
     OptionsLogin: {
         position: 'absolute', 
-        top: '135%', 
+        top:  Platform.OS == 'ios' ? '135%' : '125%', 
         flexDirection: 'row', 
         alignSelf: 'flex-start', 
         justifyContent: 'space-between', 
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
 
     Btn:{
         position: 'absolute', 
-        top: '140%', 
+        top:  Platform.OS == 'ios' ? '140%' : '130%', 
         flexDirection: 'row', 
         alignSelf: 'flex-end', 
         justifyContent: 'space-between', 

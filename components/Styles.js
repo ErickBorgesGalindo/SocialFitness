@@ -15,12 +15,20 @@ export default StyleSheet.create({
     },
     slashView: {
         position: 'absolute',
-        top: '80%',
-        width: '100%',
+        top: '75%',
+        width: '200%',
         height: 600,
         backgroundColor: '#1C1C1E',
         transform: [{ skewY: '-10deg' }],
       },
+    //   slashView: {
+    //     position: 'absolute',
+    //     top: '80%',
+    //     width: '100%',
+    //     height: 600,
+    //     backgroundColor: '#1C1C1E',
+    //     transform: [{ skewY: '-10deg' }],
+    //   },
     completeContainer: {
         flex: 1,
         backgroundColor: '#1C1C1E',
