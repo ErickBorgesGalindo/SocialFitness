@@ -23,6 +23,7 @@ import UserWeight from './screens/UserWeight';
 import UserHeight from './screens/UserHeight';
 import UserGoal from './screens/UserGoal';
 import UserLevel from './screens/UserLevel';
+import TabNavigator from './navigation/TabNavigator';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -39,7 +40,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown: false}} />
                 <Stack.Screen name='Verification' component={Verification} options={{headerShown: false}} />
-                <Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
+                <Stack.Screen name='Home' component={TabNavigator} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutDetail' component={WorkoutDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutCategories' component={WorkoutCategories} options={{ headerShown: false }} />
                 <Stack.Screen name='SubscriptionType' component={SubscriptionType} options={{ headerShown: false }} />

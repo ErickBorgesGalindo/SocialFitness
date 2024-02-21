@@ -53,6 +53,7 @@ npm start
 * El proyecto hace uso de [React Navigation](https://reactnavigation.org) para la navegación.
 ```
 npm install @react-navigation/native-stack
+npm install @react-navigation/bottom-tabs
 ```
 
 * Se incluyó el uso de [React Native Ratings](https://github.com/Monte9/react-native-ratings#readme) para los review.
