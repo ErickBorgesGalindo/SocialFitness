@@ -28,7 +28,7 @@ const UserAge = () => {
 
             {/* ageSelector */}
             <View style={{ marginTop: '10%', alignSelf: 'center', top: '10%' }}>
-                <WheelPicker items={data}  onIndexChange={handleValueChange} itemHeight={50} />
+                <WheelPicker items={data}  onIndexChange={handleValueChange} itemHeight={58} />
             </View>
 
             {/* customBtn, backBtn */}
