@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, View, Text } from 'react-native';
+import { Pressable, StyleSheet, View, Text, Platform } from 'react-native';
 import Slider from '@react-native-community/slider';
 import React, { useState, useRef, useEffect } from 'react';
 import { Video } from 'expo-av';
@@ -113,7 +113,7 @@ const VideoScreen = () => {
         </View>
   
   
-        <Text style={styles.maintxt}>Lower Body Strength</Text>
+        <Text style={[styles.maintxt, , { top: Platform.OS == 'ios' ? '82%' : '80%',  left: Platform.OS == 'ios' ? '05%' : '09%'  }]}>Lower Body Strength</Text>
         <View style={styles.progressContainer}>
           <Slider
             style={{ ...styles.progressBar }}
@@ -122,7 +122,7 @@ const VideoScreen = () => {
             value={playbackPosition}
             onValueChange={handleSliderChange}
             minimumTrackTintColor={'#D0FD3E'}
-            maximumTrackTintColor={'rgba(28,28,30,0.5)'}
+            maximumTrackTintColor= {Platform.OS == 'ios' ? 'rgba(28,28,30,0.5)' : 'rgba(10,10,10,1)'}
             thumbTintColor={'transparent'}
           />
         </View>
@@ -191,10 +191,9 @@ const styles = StyleSheet.create({
   
     maintxt: {
       position: 'absolute',
-      top: '82%',
       left: '5%',
       fontSize: 20,
-      fontWeight: 800,
+      fontWeight: '800',
       color: '#fff',
     },
   
