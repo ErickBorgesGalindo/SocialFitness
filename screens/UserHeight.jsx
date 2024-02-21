@@ -29,10 +29,10 @@ const UserHeight = () => {
             {/* heightSelector */}
             <View style={{flexDirection:'row', justifyContent:'center', left:'02%'}}>
                 <View style={{ marginTop: '10%', alignSelf: 'center', top: '10%' }}>
-                    <WheelPicker items={data} onIndexChange={handleValueChange} itemHeight={50} />
+                    <WheelPicker items={data} onIndexChange={handleValueChange} itemHeight={58} />
                 </View>
                 <View style={{justifyContent:'center'}}>
-                    <Text style={{ color: 'white', alignSelf: 'flex-end', fontSize: 20, top:'-8%'}}>CM</Text>
+                    <Text style={{ color: 'white', alignSelf: 'flex-end', fontSize: 20, top:'-12%'}}>CM</Text>
                 </View>
             </View>
              
