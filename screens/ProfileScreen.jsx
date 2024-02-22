@@ -38,7 +38,7 @@ const ProfileScreen = () => {
         {/* profileOptions */}
         <View style={{ alignItems: 'center' }}>
           <CardOptions optionName={'Edit Profile'} onPress={() => navigation.navigate('ProfileEdit')} />
-          <CardOptions optionName={'Privacy Policy'} onPress={() => console.log('Privacy Policy')} />
+          <CardOptions optionName={'Privacy Policy'} onPress={() => navigation.navigate('PrivacyPolicy')} />
           <CardOptions optionName={'Settings'} onPress={() => console.log('Settings')} />
         </View>
         {/* signOut */}

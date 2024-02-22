@@ -25,6 +25,7 @@ import UserGoal from './screens/UserGoal';
 import UserLevel from './screens/UserLevel';
 import TabNavigator from './navigation/TabNavigator';
 import ProfileEdit from './screens/ProfileEdit';
+import PrivacyPolicy from './screens/PrivacyPolicy';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -43,6 +44,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Verification' component={Verification} options={{headerShown: false}} />
                 <Stack.Screen name='Home' component={TabNavigator} options={{ headerShown: false }} />
                 <Stack.Screen name='ProfileEdit' component={ProfileEdit} options={{ headerShown: false }} />
+                <Stack.Screen name='PrivacyPolicy' component={PrivacyPolicy} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutDetail' component={WorkoutDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutCategories' component={WorkoutCategories} options={{ headerShown: false }} />
                 <Stack.Screen name='SubscriptionType' component={SubscriptionType} options={{ headerShown: false }} />
