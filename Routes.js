@@ -29,6 +29,7 @@ import PrivacyPolicy from './screens/PrivacyPolicy';
 import Settings from './screens/Settings';
 import UnitsMeasure from './screens/UnitsMeasure';
 import Notifications from './screens/Notifications';
+import Language from './screens/Language';
 
 const StackNavigator = () => {
     const Stack = createNativeStackNavigator();
@@ -51,6 +52,7 @@ const StackNavigator = () => {
                 <Stack.Screen name='Settings' component={Settings} options={{ headerShown: false }} />
                 <Stack.Screen name='UnitsMeasure' component={UnitsMeasure} options={{ headerShown: false }} />
                 <Stack.Screen name='Notifications' component={Notifications} options={{ headerShown: false }} />
+                <Stack.Screen name='Language' component={Language} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutDetail' component={WorkoutDetail} options={{ headerShown: false }} />
                 <Stack.Screen name='WorkoutCategories' component={WorkoutCategories} options={{ headerShown: false }} />
                 <Stack.Screen name='SubscriptionType' component={SubscriptionType} options={{ headerShown: false }} />
