@@ -46,7 +46,7 @@ const SubscriptionType = () => {
                 isSelected={isMonthlyPressed}
                 mainText='Montly'
                 subText='Pay monthly, cancel any time'
-                priceText='19.99 /m'
+                priceText='$ 19.99 /m'
                 topPosition='80%'
                 pricePosition={15} />
             <RadioButton
@@ -54,7 +54,7 @@ const SubscriptionType = () => {
                 isSelected={isYearlyPressed}
                 mainText='Yearly'
                 subText='Pay for a full year'
-                priceText='129.99 /y'
+                priceText='$ 129.99 /y'
                 topPosition='95%'
                 pricePosition={70} />
 

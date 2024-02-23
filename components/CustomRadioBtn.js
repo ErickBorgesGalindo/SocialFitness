@@ -11,7 +11,7 @@ const RadioButton = ({onPress, isSelected, mainText, subText, priceText, topPosi
             </View>
             <Text 
             style={{ alignSelf: 'center', marginLeft: pricePosition, fontSize: 20, fontWeight: '700', color: 'white'}}>
-              $ {priceText} 
+              {priceText} 
               </Text>
             
         </Pressable>
