@@ -19,7 +19,7 @@ const Settings = () => {
       {/* settingsCards */}
       <View style={{ alignItems: 'center', top:'10%' }}>
           <CardOptions optionName={'Units of Measure'} onPress={() => navigation.navigate('UnitsMeasure')} />
-          <CardOptions optionName={'Notifications'} onPress={() => navigation.navigate('PrivacyPolicy')} />
+          <CardOptions optionName={'Notifications'} onPress={() => navigation.navigate('Notifications')} />
           <CardOptions optionName={'Language'} onPress={() => navigation.navigate('Settings')} />
           <CardOptions optionName={'Contact Us'} onPress={() => navigation.navigate('Settings')} />
       </View>
