@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginLeft: 20,
         marginTop: 10,
-        fontWeight: "600",
+        fontWeight: '600',
         width: 150,
         color: '#fff',
     },
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginTop: 10,
         fontSize: 15,
-        fontWeight: "600",
+        fontWeight: '600',
         color: '#D0FD3E',
     },
 })

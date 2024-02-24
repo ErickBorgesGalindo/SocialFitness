@@ -11,7 +11,7 @@ const TrainerCard = ({ trainerName, experience, ImageSource, onPress, descriptio
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={styles.flatCardTxtMain}>{trainerName}</Text>
                     <View style={{ height: 15, width: 45, borderRadius: 5, backgroundColor: '#D0FD3E', alignItems: 'center', justifyContent: 'center', marginLeft: -20 }}>
-                        <Text style={{ fontSize: 12, fontWeight: '600' }}>{score}</Text>
+                        <Text style={{ fontSize: 12, fontWeight: "600" }}>{score}</Text>
                     </View>
                 </View>
 

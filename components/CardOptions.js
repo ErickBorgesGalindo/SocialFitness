@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
     flatText: {
         fontSize: 18,
-        fontWeight: 500,
+        fontWeight: '500',
         color: '#fff',
     },
 

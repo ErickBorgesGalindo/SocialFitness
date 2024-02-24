@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         width:'100%',
         color:'black',
         textAlign:'center', 
-        fontWeight:"400",
+        fontWeight:'400',
         fontSize:18,
     }
 })

@@ -18,7 +18,7 @@ const PopUpView = ({btnTitle, onPress, cancelOnPress, popUpTitle,popUpSubtitle, 
                 </View>
 
                 <Pressable style={{ top: '88%', left: '0%'}} onPress={cancelOnPress}>
-                    <Text style={{width:'100%', color:'white', textAlign:'center', fontWeight:"400", fontSize:17,}}>Cancel</Text>
+                    <Text style={{width:'100%', color:'white', textAlign:'center', fontWeight:'400', fontSize:17,}}>Cancel</Text>
                 </Pressable>
 
 
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         top: '48%',
         left: '5%',
         fontSize: 20,
-        fontWeight: "600",
+        fontWeight: '600',
         color: '#fff',
     },
 
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         top: '55%',
         left: '5%',
         fontSize: 15,
-        fontWeight: "500",
+        fontWeight: '500',
         color: '#D0FD3E',
     },
 

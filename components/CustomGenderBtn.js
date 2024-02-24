@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
     },
     textDisable: {
         fontSize: 18,
-        fontWeight: 500,
+        fontWeight: '500',
         color: '#fff'
     },
     textSelected: {
         fontSize: 18,
-        fontWeight: 500,
+        fontWeight: '500',
         color: '#2C2C2E'
     },
     

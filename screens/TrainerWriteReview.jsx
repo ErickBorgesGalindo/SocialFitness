@@ -44,7 +44,7 @@ const TrainerWriteReview = () => {
                 />
                 <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'space-between', marginTop: 10 }}>
                     <Text style={{ ...Styles.text }}>Rating:</Text>
-                    <Text style={{ ...Styles.text, fontWeight: 800, }}>{showRate.toFixed(1)}</Text>
+                    <Text style={{ ...Styles.text, fontWeight: '800', }}>{showRate.toFixed(1)}</Text>
                 </View>
             </View>
 

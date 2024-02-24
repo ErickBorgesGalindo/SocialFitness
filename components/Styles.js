@@ -110,38 +110,38 @@ export default StyleSheet.create({
     // ------TextStyles------
     header: {
         fontSize: 50,
-        fontWeight: "800",
+        fontWeight: '800',
         color: '#fff',
     },
     subHeader: {
         fontSize: 18,
-        fontWeight: "300",
+        fontWeight: '300',
         color: '#fff',
     },
     text: {
         fontSize: 18,
-        fontWeight: "500",
+        fontWeight: '500',
         color: '#fff'
     },
     textOut: {
         fontSize: 18,
-        fontWeight: "500",
+        fontWeight: '500',
         color: '#FF2424'
     },
     textColor: {
         fontSize: 17,
-        fontWeight: "300",
+        fontWeight: '300',
         color: '#D0FD3E'
     },
     textSmall: {
         fontSize: 17,
-        fontWeight: "300",
+        fontWeight: '300',
         color: '#FFF'
     },
     textPopUp: {
         marginLeft: 15,
         fontSize: 25,
-        fontWeight: "600",
+        fontWeight: '600',
         color: 'white'
     },
     description: {
@@ -156,7 +156,7 @@ export default StyleSheet.create({
         marginTop: 30,
         alignSelf: 'center',
         fontSize: 30,
-        fontWeight: "900",
+        fontWeight: '900',
         color: '#fff',
         textTransform: 'uppercase'
     },
@@ -167,7 +167,7 @@ export default StyleSheet.create({
         marginTop: 30
     },
     cardInfoTxt: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
         fontSize: 20,
         color: 'white',
     },

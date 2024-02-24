@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     width:'100%',
     color:'white',
     textAlign:'center', 
-    fontWeight:"400",
+    fontWeight:'400',
     fontSize:18,
   },
 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     width:'100%',
     color:'rgba(255,255,255,0.4)',
     textAlign:'center', 
-    fontWeight:"400",
+    fontWeight:'400',
     fontSize:18,
   }
 

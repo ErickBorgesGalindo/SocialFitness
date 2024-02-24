@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         top: '65%',
         left: '5%',
         fontSize: 18,
-        fontWeight: "600",
+        fontWeight: '600',
         color: '#fff',
     },
 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         top: '80%',
         left: '5%',
         fontSize: 15,
-        fontWeight: "500",
+        fontWeight: '500',
         color: '#D0FD3E',
     },
     proTxt: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 20,
         fontSize: 13,
-        fontWeight: "bold",
+        fontWeight: 'bold',
         borderWidth: 1,
         borderRadius: 10,
         borderColor: '#F6A800',
