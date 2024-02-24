@@ -1,6 +1,8 @@
 # Social Fitness
 
-_Este proyecto es un ejercicio personal para crear una aplicación en [REACT NATIVE](https://reactnative.dev), con principal enfoque en el desarrollo Front-End. De igual forma, busca ser una practica para mejorar la creación de componentes reutilizables._
+Este proyecto es un ejercicio personal para crear una aplicación en [REACT NATIVE](https://reactnative.dev), con principal enfoque en el desarrollo Front-End. De igual forma, busca ser una practica para mejorar la creación de componentes reutilizables.
+
+_Todos los diseños presentados aqui son basados en las contribuciones de [@uifreebies](https://www.figma.com/@uifreebies)_
 
 ## Comenzando 🚀
 
