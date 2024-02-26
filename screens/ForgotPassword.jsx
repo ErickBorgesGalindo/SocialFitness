@@ -23,7 +23,7 @@ const ForgotPassword = () => {
             </View>
 
             {/* emailInput */}
-            <View style={{top:'8%', alignSelf:'center'}}>
+            <View style={{top:'8%', alignSelf:'center', width:'90%'}}>
                 <MaskedInput
                     style={Styles.input}
                     value={mail}

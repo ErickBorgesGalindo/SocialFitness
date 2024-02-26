@@ -216,7 +216,8 @@ const styles = StyleSheet.create({
     Inputs:{
         position: 'absolute', 
         top: Platform.OS == 'ios' ? '95%' : '87%', 
-        marginHorizontal: 20
+        marginHorizontal: 20,
+        width:'90%'
     },
 
     OptionsLogin: {
