@@ -36,7 +36,7 @@ const HomeScreen = () => {
 
       {/* content */}
         {/* todayWorkoutPlan */}
-        {/* <ScrollView> */}
+        <ScrollView>
           <View style={Styles.infoTextView}>
             <Text style={{ ...Styles.text }}>Workout Plan</Text>
             <Text style={{ ...Styles.textColor }}>{date}</Text>
@@ -105,7 +105,7 @@ const HomeScreen = () => {
               />
           </ScrollView>
 
-        {/* </ScrollView> */}
+        </ScrollView>
     </View>
   )
 }
