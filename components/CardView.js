@@ -1,13 +1,13 @@
 import React from 'react'
 import { Pressable, Image, Text, StyleSheet } from 'react-native'
 
-const CardView = ({ text, subtitle, ImageSource, onPress, style, isPremium }) => {
+const CardView = (props) => {
     return (
-        <Pressable style={[styles.cardView, style]} onPress={onPress}>
-            <Image style={styles.imageCard} source={ImageSource} />
-            <Text style={styles.imgTxt}>{text}</Text>
-            <Text style={styles.imgTxtGreen}>| {subtitle}</Text>
-            { isPremium && <Text style={styles.proTxt}>PRO</Text>}
+        <Pressable style={[styles.cardView]} onPress={props.onPress}>
+            <Image style={styles.imageCard} source={props.data.image} />
+            <Text style={styles.imgTxt}>{props.data.name}</Text>
+            <Text style={styles.imgTxtGreen}>| {props.data.subtitle}</Text>
+            { props.data.premium && <Text style={styles.proTxt}>PRO</Text>}
         </Pressable>
     )
 }
