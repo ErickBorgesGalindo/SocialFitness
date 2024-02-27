@@ -1,6 +1,7 @@
-import {View, Text, ScrollView, Platform } from 'react-native';
+import {View, Text, Platform, FlatList, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 //Styles
 import Styles from '../components/Styles';
 //Components
@@ -10,29 +11,46 @@ import Review from '../components/ReviewView';
 import CustomBtn from '../components/CustomBtn';
 import ProgressBar from '../components/CustomProgressBar';
 
+const data = [
+    { id: 1, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Recent' },
+    { id: 2, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Critical' },
+    { id: 3, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria.", type: 'Favourable' },
+    { id: 4, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Recent' },
+    { id: 5, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Critical' },
+    { id: 6, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria.", type: 'Favourable' },
+    { id: 7, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Recent' },
+    { id: 8, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Critical' },
+    { id: 9, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria.", type: 'Favourable' },
+];
 
 const TrainerReviews = () => {
     const navigation = useNavigation();
     const [isRecentPressed, setIsRecentPressed] = useState(true);
     const [isCriticalPressed, setIsCriticalPressed] = useState(false);
     const [isFavourablePressed, setIsFavourablePressed] = useState(false);
+    const [filteredData, setFilteredData] = useState(data.filter(item => item.type === 'Recent')); // Iniciar con todo el array
 
     const handleRecentPress = () => {
         setIsRecentPressed(true);
         setIsCriticalPressed(false);
         setIsFavourablePressed(false);
+        setFilteredData(data.filter(item => item.type === 'Recent'));
+
     };
 
     const handleCriticalPress = () => {
         setIsRecentPressed(false);
         setIsCriticalPressed(true);
         setIsFavourablePressed(false);
+        setFilteredData(data.filter(item => item.type === 'Critical'));
     };
 
     const handleFavourablePress = () => {
         setIsRecentPressed(false);
         setIsCriticalPressed(false);
         setIsFavourablePressed(true);
+        setFilteredData(data.filter(item => item.type === 'Favourable'));
+
     };
 
     return (
@@ -66,28 +84,21 @@ const TrainerReviews = () => {
             </View>
             
             {/* Reviews */}
-            <View style={{marginBottom: Platform.OS == 'ios' ? 180 : 130}}>
-                <ScrollView showsVerticalScrollIndicator={false} marginBottom={250} style={{ alignSelf: 'center' }}>
-                    <Review
-                        user={'Nayely Morales'}
-                        time={'2'}
-                        image={require('../images/trainer.jpg')}
-                        review={'Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. '} 
-                        type={'Recent'}/>
-                    <Review
-                        user={'Nayely Morales'}
-                        time={'2'}
-                        image={require('../images/trainer.jpg')}
-                        review={'Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. '} 
-                        type={'Critical'}/>
-                    <Review
-                        user={'Nayely Morales'}
-                        time={'2'}
-                        image={require('../images/trainer.jpg')}
-                        review={'Had such an amazing session with Maria.'} 
-                        type={'Facourable'}/>
-                </ScrollView>
-            </View>
+            <View style={{alignSelf:'center'}}>
+                    <FlatList
+                        style={{ width: '90%', marginBottom:'100%'}}
+                        data={filteredData}
+                        renderItem={({ item }) => {
+                            return (
+                                <GestureHandlerRootView>
+                                    <TouchableOpacity>
+                                        <Review data={item}/>
+                                    </TouchableOpacity>
+                                </GestureHandlerRootView>
+                            )
+                        }}
+                    />
+                </View>
 
             {/* Button */}
             <View style={{ top: Platform.OS == 'ios' ? '-43%' : '-47%' }}>

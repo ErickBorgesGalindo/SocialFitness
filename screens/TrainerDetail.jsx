@@ -1,6 +1,7 @@
-import {View, Text, Image, Pressable, Linking, ScrollView, StyleSheet, Platform } from 'react-native';
+import { View, Text, Image, Pressable, Linking, StyleSheet, Platform, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 //Styles
 import Styles from '../components/Styles';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,6 +9,18 @@ import { Ionicons } from '@expo/vector-icons';
 import BackBtn from '../components/BackBtn';
 import CustomBtn from '../components/CustomBtn';
 import Review from '../components/ReviewView';
+
+const recentData = [
+    { id: 1, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Recent' },
+    { id: 2, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Critical' },
+    { id: 3, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria.", type: 'Favourable' },
+    // { id: 4, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Recent' },
+    // { id: 5, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Critical' },
+    // { id: 6, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria.", type: 'Favourable' },
+    // { id: 7, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Recent' },
+    // { id: 8, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits. Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.", type: 'Critical' },
+    // { id: 9, user: 'Nayely Morales', time: 2, image: require('../images/trainer.jpg'), review: "Had such an amazing session with Maria.", type: 'Favourable' },
+];
 
 const TrainerDetail = () => {
     const navigation = useNavigation();
@@ -26,7 +39,7 @@ const TrainerDetail = () => {
             {/* Back icon */}
             <BackBtn onPress={() => navigation.goBack()} style={{ top: '15%' }} />
 
-            <View style={[Styles.viewContainer, {top: Platform.OS === 'ios' ? '93%' : '70%'}]}>
+            <View style={[Styles.viewContainer, { top: Platform.OS === 'ios' ? '93%' : '70%' }]}>
                 {/* title and call */}
                 <View style={[styles.rowView]}>
                     <View style={{ flexDirection: 'col' }}>
@@ -41,7 +54,7 @@ const TrainerDetail = () => {
                 {/* trainerMeassures */}
                 <View style={Styles.dataView}>
                     {/* Experience */}
-                    <View style={{ flexDirection: 'row', justifyContent: 'center'}}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                         <View style={styles.dataMeassuresView}>
                             <Text style={{ ...Styles.text, fontSize: 30 }}>6</Text>
                             <Text style={{ color: 'white' }}>Experience</Text>
@@ -62,7 +75,7 @@ const TrainerDetail = () => {
                 </View>
 
                 {/* reviews and calification*/}
-                <View style={[styles.rowView, {marginTop: 10}]}>
+                <View style={[styles.rowView, { marginTop: 10 }]}>
                     <Text style={{ ...Styles.text, marginLeft: '6%', marginTop: 10 }}> Reviews </Text>
                     <View style={{ height: 20, width: 50, borderRadius: 5, marginTop: 14, marginRight: 30, backgroundColor: '#D0FD3E', alignItems: 'center', justifyContent: 'center' }}>
                         <Text style={{ fontSize: 15, fontWeight: '600' }}>4.6</Text>
@@ -87,17 +100,25 @@ const TrainerDetail = () => {
                 </View>
 
                 {/* ReviewText */}
-                <View>
-                    <ScrollView horizontal showsHorizontalScrollIndicator={false} snapToInterval={330} snapToAlignment={'center'} style={{ alignSelf: 'center' }}>
-                        <Review user={'Nayely Morales'} time={'2'} image={require('../images/trainer.jpg')} review={'Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.'} />
-                        <Review user={'Nayely Morales'} time={'2'} image={require('../images/trainer.jpg')} review={'Had such an amazing session with Maria.'} />
-                        <Review user={'Nayely Morales'} time={'2'} image={require('../images/trainer.jpg')} review={'Had such an amazing session with Maria. She instantly picked up on the level of my fitness and adjusted the workout to suit me whilst also pushing me to my limits.'} />
-                    </ScrollView>
+                <View style={{alignSelf:'center'}}>
+                    <FlatList
+                        style={{ width: '90%', marginBottom:Platform.OS == 'ios' ? '225%': '265%'}}
+                        data={recentData}
+                        renderItem={({ item }) => {
+                            return (
+                                <GestureHandlerRootView>
+                                    <TouchableOpacity>
+                                        <Review data={item}/>
+                                    </TouchableOpacity>
+                                </GestureHandlerRootView>
+                            )
+                        }}
+                    />
                 </View>
             </View>
 
             {/* Button */}
-            <View style={{ top: Platform.OS == 'ios' ? '170%' : '140%' }}>
+            <View style={{ top: Platform.OS == 'ios' ? '180%' : '140%' }}>
                 <CustomBtn title='Book an Appoinment' onPress={() => navigation.navigate('Appoinment')} />
             </View>
         </View>
@@ -113,15 +134,15 @@ const styles = StyleSheet.create({
     },
 
     meassuresView: {
-        height: 65, 
-        marginLeft: 10, 
-        marginRight: 10, 
-        borderLeftColor: 'rgba(255,255,255,0.2)', 
-        borderLeftWidth: 1 
+        height: 65,
+        marginLeft: 10,
+        marginRight: 10,
+        borderLeftColor: 'rgba(255,255,255,0.2)',
+        borderLeftWidth: 1
     },
 
     dataMeassuresView: {
-        flexDirection: 'column', 
+        flexDirection: 'column',
         alignItems: 'center'
     }
 
