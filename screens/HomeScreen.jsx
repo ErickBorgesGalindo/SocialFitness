@@ -70,8 +70,8 @@ const HomeScreen = () => {
               renderItem={({item}) => {
                 return(
                   <GestureHandlerRootView style={{marginLeft:15 }}>
-                    <TouchableOpacity onPress={()=> console.log('Pachurrao')}>
-                      <CardView data ={item}/>
+                    <TouchableOpacity>
+                      <CardView data ={item} onPress={() => handleCardPress(item)}/>
                     </TouchableOpacity>
                   </GestureHandlerRootView>
                 )

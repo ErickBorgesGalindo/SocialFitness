@@ -34,7 +34,7 @@ const WorkoutCategories = () => {
     const [isGymPressed, setIsGymPressed] = useState(true);
     const [isMartialArtsPressed, setIsMartialArtsPressed] = useState(false);
     const [isLifestylePressed, setIsLifestylePressed] = useState(false);
-    const [filteredData, setFilteredData] = useState(data); // Iniciar con todo el array
+    const [filteredData, setFilteredData] = useState(data.filter(item => item.type === 'Gym')); // Iniciar con todo el array
 
     const handleGymPress = () => {
         setIsGymPressed(true);
@@ -59,6 +59,10 @@ const WorkoutCategories = () => {
 
     };
 
+    const handleCardPress = () => {
+        navigation.navigate('WorkoutDetail')
+    };
+
     return (
         <View style={Styles.container}>
             <Text style={{ ...Styles.sectionName, fontSize: 20, marginTop: 66 }}>Workout Categories</Text>
@@ -78,8 +82,8 @@ const WorkoutCategories = () => {
                   renderItem={({item}) => {
                     return(
                       <GestureHandlerRootView style={{marginLeft:15 }}>
-                        <TouchableOpacity onPress={()=> console.log('Pachurrao')}>
-                          <CardView data ={item}/>
+                        <TouchableOpacity>
+                          <CardView data ={item} onPress={() => handleCardPress(item)}/>
                         </TouchableOpacity>
                       </GestureHandlerRootView>
                     )
