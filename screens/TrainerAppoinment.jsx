@@ -1,7 +1,8 @@
-import {View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import CalendarPicker from 'react-native-calendar-picker';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 //Styles
 import Styles from '../components/Styles';
 import { AntDesign } from '@expo/vector-icons';
@@ -11,6 +12,9 @@ import TrainerCard from '../components/CardTrainer';
 import CustomBtn from '../components/CustomBtn';
 import TimeBtn from '../components/CustomTimeBtn';
 
+const data = [
+    { id: '1', trainerName: 'Richard Will', description: 'Congratulations', experience: '5 years experience', score: 4.9, image: require('../images/trainer.jpg'), showArrow: true },
+]
 
 const TrainerAppoinment = () => {
     const navigation = useNavigation();
@@ -34,14 +38,17 @@ const TrainerAppoinment = () => {
 
             {/* trainerCard */}
             <View style={{ justifyContent: 'center', marginTop: 10, alignItems: 'center' }}>
-                <TrainerCard
-                    trainerName='Emily Kevin'
-                    experience={'2 years experience'}
-                    ImageSource={require('../images/trainer.jpg')}
-                    onPress={() => console.log('Papoi')}
-                    description={'High Intensity Training'}
-                    score={'4.9'}
-                    showArrow={false} />
+                <FlatList
+                    data={data}
+                    renderItem={({ item }) => {
+                        return (
+                            <GestureHandlerRootView>
+                                <TouchableOpacity>
+                                    <TrainerCard data={item} />
+                                </TouchableOpacity>
+                            </GestureHandlerRootView>
+                        )
+                    }} />
             </View>
 
             {/* calendar */}
@@ -114,9 +121,9 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Alinea verticalmente el contenido al centro
         padding: 5
     },
-    
-    CalendarTitle:{
-        fontSize: 25, 
+
+    CalendarTitle: {
+        fontSize: 25,
         fontWeight: '600'
     }
-  })
+})

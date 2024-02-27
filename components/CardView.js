@@ -7,7 +7,7 @@ const CardView = (props) => {
             <Image style={styles.imageCard} source={props.data.image} />
             <Text style={styles.imgTxt}>{props.data.name}</Text>
             <Text style={styles.imgTxtGreen}>| {props.data.subtitle}</Text>
-            { props.data.premium && <Text style={styles.proTxt}>PRO</Text>}
+            {props.data.premium && <Text style={styles.proTxt}>PRO</Text>}
         </Pressable>
     )
 }
@@ -61,4 +61,3 @@ const styles = StyleSheet.create({
 
     }
 })
-
