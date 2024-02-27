@@ -2,13 +2,13 @@ import { View, Text, Image, StyleSheet } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 import React from 'react'
 
-const FlatCard = ({excerciseName, duration, ImageSource, onPress}) => {
+const FlatCard = (props) => {
     return (
         <View style={styles.flatCard}>
-            <Image style={styles.flatCardImg} source={ImageSource} />
-            <Text style={styles.flatCardTxtMain}>{excerciseName}</Text>
-            <Entypo name="chevron-right" size={24} color="#fff" marginTop={30} marginLeft={15} onPress={onPress} />
-            <Text style={styles.flatCardTime}>{duration}</Text>
+            <Image style={styles.flatCardImg} source={props.data.image} />
+            <Text style={styles.flatCardTxtMain}>{props.data.name}</Text>
+            <Entypo name="chevron-right" size={24} color="#fff" marginTop={30} marginLeft={15} onPress={props.onPress} />
+            <Text style={styles.flatCardTime}>{props.data.time}</Text>
         </View>
     )
 }

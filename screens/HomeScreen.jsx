@@ -99,11 +99,11 @@ const HomeScreen = () => {
         <View style={{ alignItems: 'center' }}>
           <FlatList
             horizontal={true}
-            style={{ width: '95%' }}
+            style={{ width: '90%'}}
             data={trainersData}
             renderItem={({ item }) => {
               return (
-                <GestureHandlerRootView style={{ marginLeft: 15 }}>
+                <GestureHandlerRootView style={{ marginHorizontal: 0 }}>
                   <TouchableOpacity>
                     <CardViewSquare data={item} onPress={() => handleTrainerPress(item)} />
                   </TouchableOpacity>

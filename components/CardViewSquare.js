@@ -1,4 +1,6 @@
 import React from 'react'
+import { Pressable, Image, Text, StyleSheet } from 'react-native'
+
 
 const CardViewSquare = (props) => {
     return (
