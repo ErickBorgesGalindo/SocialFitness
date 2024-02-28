@@ -9,26 +9,26 @@ import CustomSwipe from '../components/CustomSwipe';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const data =[
-  {id: '1', content: '35% your daily challenge completed', title: 'Congratulations'},
-  {id: '2', content: 'Your subscription is going to expire very soon', title: 'Attention',},
-  {id: '3', content: 'New activity for your workout session', title: 'New Activity',},
-  {id: '4', content: 'New video from your trainer', title: 'New Video',},
-  {id: '5', content: 'E', title: 'Renew your payment',},
-  {id: '6', content: 'F', title: 'Title6',},
-  {id: '7', content: 'G', title: 'Title7',},
-  {id: '8', content: 'H', title: 'Title8',},
-  {id: '9', content: 'I', title: 'Title9',},
-  {id: '10', content: 'J', title: 'Title10',},
-  {id: '11', content: 'K', title: 'Title11',},
-  {id: '12', content: 'L', title: 'Title12',},
-  {id: '13', content: 'M', title: 'Title13',},
-  {id: '14', content: 'N', title: 'Title14',},
-  {id: '15', content: 'O', title: 'Title15',},
-  {id: '16', content: 'P', title: 'Title16',},
-  {id: '17', content: 'Q', title: 'Title17',},
-  {id: '18', content: 'R', title: 'Title18',},
-  {id: '19', content: 'S', title: 'Title19',},
-  {id: '20', content: 'T', title: 'Title20',},
+  {id: '1', content: '35% your daily challenge completed', title: 'Congratulations', type: 'New'},
+  {id: '2', content: 'Your subscription is going to expire very soon', title: 'Attention', type: 'Event'},
+  {id: '3', content: 'New activity for your workout session', title: 'New Activity',type: 'New'},
+  {id: '4', content: 'New video from your trainer', title: 'New Video', type: 'New'},
+  {id: '5', content: 'E', title: 'Renew your payment',type: 'Event'},
+  {id: '6', content: 'F', title: 'Title6',type: 'New'},
+  {id: '7', content: 'G', title: 'Title7',type: 'Event'},
+  {id: '8', content: 'H', title: 'Title8',type: 'Event'},
+  {id: '9', content: 'I', title: 'Title9',type: 'New'},
+  {id: '10', content: 'J', title: 'Title10',type: 'Event'},
+  {id: '11', content: 'K', title: 'Title11',type: 'New'},
+  {id: '12', content: 'L', title: 'Title12',type: 'New'},
+  {id: '13', content: 'M', title: 'Title13',type: 'Event'},
+  {id: '14', content: 'N', title: 'Title14',type: 'Event'},
+  {id: '15', content: 'O', title: 'Title15',type: 'New'},
+  {id: '16', content: 'P', title: 'Title16',type: 'Event'},
+  {id: '17', content: 'Q', title: 'Title17',type: 'Event'},
+  {id: '18', content: 'R', title: 'Title18',type: 'New'},
+  {id: '19', content: 'S', title: 'Title19',type: 'Event'},
+  {id: '20', content: 'T', title: 'Title20',type: 'New'},
 ]
 
 const NotificationScreen = () => {
@@ -37,29 +37,37 @@ const NotificationScreen = () => {
   const [isEventsPressed, setIsEventsPressed] = useState(false);
   const [isAllPressed, setIsAllPressed] = useState(false);
   const [lists, setlists] = useState(data);
+  const [filteredData, setFilteredData] = useState(data); // Iniciar con todo el array
+
 
   const handleNewPress = () => {
     setIsNewPressed(true);
     setIsEventsPressed(false);
     setIsAllPressed(false);
+    // setFilteredData(data.filter(item => item.type === 'New'));
+    setFilteredData(lists.filter(item => item.type === 'New'));
   };
 
   const handleEventsPress = () => {
     setIsNewPressed(false);
     setIsEventsPressed(true);
     setIsAllPressed(false);
+    // setFilteredData(data.filter(item => item.type === 'Event'));
+    setFilteredData(lists.filter(item => item.type === 'Event'));
   };
 
   const handleAllPress = () => {
     setIsNewPressed(false);
     setIsEventsPressed(false);
     setIsAllPressed(true);
+    setFilteredData(lists);
   };
 
-  const deleteItem = (index) => {
-    const arr = [...lists];
+  const deleteItem = (data, index) => {
+    const arr = [...data];
     arr.splice(index, 1);
-    setlists(arr);
+    setFilteredData(arr);
+    setlists(arr)
   };
 
   return (
@@ -75,11 +83,11 @@ const NotificationScreen = () => {
 
       <View style={{marginBottom:'40%', marginTop:'03%'}}>
         <FlatList
-          data={lists}
+          data={filteredData}
           renderItem={({item, index})=> {
             return (
               <GestureHandlerRootView>
-                <CustomSwipe data={item} handleDelete={() => {deleteItem(index)}}/> 
+                <CustomSwipe data={item} handleDelete={() => {deleteItem(filteredData, index)}}/> 
               </GestureHandlerRootView>
             )
           }}
