@@ -103,7 +103,7 @@ const HomeScreen = () => {
             data={trainersData}
             renderItem={({ item }) => {
               return (
-                <GestureHandlerRootView style={{ marginHorizontal: 0 }}>
+                <GestureHandlerRootView style={{ marginLeft:15}}>
                   <TouchableOpacity>
                     <CardViewSquare data={item} onPress={() => handleTrainerPress(item)} />
                   </TouchableOpacity>

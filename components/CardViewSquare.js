@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         overflow: 'hidden',
         marginTop: 20,
-        marginLeft: 40,
     },
 
     imgCardSq: {
