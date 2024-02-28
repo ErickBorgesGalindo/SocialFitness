@@ -70,6 +70,11 @@ npm install expo-av
 npm install @react-native-community/slider --save
 ```
 
+* Por parte de las mediciones [React Native Chart-Kit](https://github.com/indiespirit/react-native-chart-kit) nos facilita el proceso de mostrar las mediciones
+```
+npm i react-native-chart-kit
+```
+
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_

@@ -4,10 +4,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Foundation } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons'; 
 import { Octicons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 //Screens
 import HomeScreen from '../screens/HomeScreen';
 import NotificationScreen from "../screens/NotificationScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import Measures from "../screens/Measures";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +24,9 @@ const TabNavigator = () => {
                 
             <Tab.Screen name="Homes" component={HomeScreen} options={{ tabBarIcon:({color, size}) => (
                 <Foundation name="home" size={size} color={color} />
+            )}}/>
+            <Tab.Screen name="Measures" component={Measures} options={{ tabBarIcon:({color, size}) => (
+                <SimpleLineIcons name="graph" size={size} color={color} />
             )}}/>
             <Tab.Screen name="Notifications" component={NotificationScreen} options={{ tabBarIcon:({color, size}) => (
                 <Octicons name="bell-fill" size={size} color={color} />), 
