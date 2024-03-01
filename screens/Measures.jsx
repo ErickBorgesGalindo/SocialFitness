@@ -1,20 +1,29 @@
-import { View, Dimensions, Platform, Text, FlatList } from 'react-native';
+import { View, Dimensions, Platform, Text, FlatList, ScrollView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import React from 'react';
+import React, { useState } from 'react';
 // Styles
 import Styles from '../components/Styles';
 // Components
 import Measure from '../components/Measure';
 import WorkoutCard from '../components/WorkoutCard';
+import BackBtn from '../components/BackBtn';
+import Day from '../components/Day';
 
 const Measures = () => {
   const screenWidth = Dimensions.get('window').width;
   const screenHeight = Dimensions.get('window').height;
+  const [isDayPressed, setIsDayPressed] = useState(false);
 
+  const handleDayPress = (index) => {
+    setIsDayPressed(index); // Actualiza solo el índice del día presionado
+    console.log('Le picaste');
+  };
+
+  // Juntar toda la data en 1 solo o 2 const
   const dataCal = {
     labels: ["Calories"],
-    data: [0.7],
-    amount: 100,
+    data: [0.8],
+    amount: 652
   };
 
   const dataSteps = {
@@ -37,16 +46,68 @@ const Measures = () => {
 
   const data = [
     { id: 1, name: 'Stability Training', time: '10:00' },
-    { id: 2, name: 'Flash Cicling', time: '20:00' },
+    { id: 2, name: 'Flash Cycling', time: '20:00' },
     { id: 3, name: 'Running', time: '20:00' },
     { id: 4, name: 'Stability Training', time: '10:00' },
-    { id: 5, name: 'Flash Cicling', time: '20:00' },
+    { id: 5, name: 'Flash Cycling', time: '20:00' },
   ]
+
+  function getFebDates(year) {
+    const startDate = new Date(year, 1, 1); // Fecha de inicio: 1 de Febrero
+    const endDate = new Date(year, 2, 0); // Fecha final: Último día de Febrero (se usa el mes 2 y día 0 para obtener el último día del mes anterior)
+    const days = [];
+
+    // Recorrer cada día entre la fecha de inicio y la fecha final
+    for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
+      days.push({
+        day: date.getDay(), // Obtener el número del día (0-6)
+        number: date.getDate(), // Obtener el día del mes (1-31)
+      });
+    }
+
+    return days;
+  }
+
+  function getDayName(dayNumber) {
+    const days = ["S", "M", "T", "W", "T", "F", "S"];
+    return days[dayNumber];
+  }
+
+  const year = 2024; // Cambiar el año según sea necesario
+  const febDates = getFebDates(year);
 
   return (
     <View style={Styles.container}>
+      {/* Days */}
+      <View style={{ backgroundColor: '#2C2C2E', height: Platform.OS === 'ios' ? '25%' : '30%', justifyContent: 'center', alignItems: 'center', borderBottomRightRadius: 26, borderBottomLeftRadius: 26 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%', alignItems: 'center', marginTop: 60 }}>
+          <BackBtn style={{ position: 'relative', left: 0 }} onPress={console.log('Apachurrao')} />
+          <Text style={{ ...Styles.text, fontSize: 20 }}>October 2021</Text>
+          <BackBtn style={{ position: 'relative', left: 0, transform: [{ rotate: '180deg' }], }} onPress={console.log('Apachurrao')} />
+        </View>
+
+        <ScrollView 
+          showsHorizontalScrollIndicator={false} 
+          horizontal={true} 
+          style={{ 
+            flexDirection: 'row',
+            width:'90%',
+            marginTop: 20, 
+            marginBottom: 15}}>
+          {febDates.map((day, index) => (
+            <Day
+              key={day.number}
+              isSelected={index === isDayPressed}
+              primaryText={getDayName(day.day)}
+              secondaryText={day.number}
+              onPress={()=> handleDayPress(index)}
+            />
+          ))}
+        </ScrollView>
+
+      </View>
       {/* Calories */}
-      <View>
+      <View style={{height:'20%'}}>
         <Measure
           data={dataCal}
           screenWidth={screenWidth}
@@ -59,11 +120,11 @@ const Measures = () => {
           text={'Active Calories'}
           amount={`${dataCal.amount} Cal`}
           textPosition={Platform.OS === 'ios' ? '110%' : '80%'}
-          subTextPosition={Platform.OS === 'ios' ? '70%' : '40%'}
+          subTextPosition={Platform.OS === 'ios' ? '60%' : '20%'}
         />
       </View>
       {/* AnotherMeasures */}
-      <View style={{ flexDirection: 'row', marginTop: Platform.OS == 'ios' ? '5%' : '12%', height: '10%' }}>
+      <View style={{ flexDirection: 'row', marginTop: Platform.OS == 'ios' ? '25%' : '32%', height: '10%' }}>
         {/* Steps */}
         <View>
           <Measure
@@ -124,10 +185,10 @@ const Measures = () => {
         <View style={{ ...Styles.infoTextView, marginTop: 30, marginBottom: 20, marginHorizontal: 25 }}>
           <Text style={{ ...Styles.text }}>Finished Workout</Text>
         </View>
-        <View style={{ height: '60%'}}>
+        <View style={{ height: '60%' }}>
           <FlatList
             data={data}
-            style={{marginBottom: Platform.OS == 'ios' ? null : 40}}
+            style={{ marginBottom: Platform.OS == 'ios' ? null : 40 }}
             renderItem={({ item }) => {
               return (
                 <GestureHandlerRootView>
