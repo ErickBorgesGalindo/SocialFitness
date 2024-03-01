@@ -13,10 +13,13 @@ const Measures = () => {
   const screenWidth = Dimensions.get('window').width;
   const screenHeight = Dimensions.get('window').height;
   const [isDayPressed, setIsDayPressed] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(null); 
 
   const handleDayPress = (index) => {
     setIsDayPressed(index); // Actualiza solo el índice del día presionado
-    console.log('Le picaste');
+    setSelectedDay(febDates[index]);
+    console.log( getDayName(selectedDay.day),':',selectedDay.number);
+    // console.log(Día seleccionado: ${selectedDay.number} - ${getDayName(selectedDay.day)}'');
   };
 
   // Juntar toda la data en 1 solo o 2 const
@@ -49,7 +52,7 @@ const Measures = () => {
     { id: 2, name: 'Flash Cycling', time: '20:00' },
     { id: 3, name: 'Running', time: '20:00' },
     { id: 4, name: 'Stability Training', time: '10:00' },
-    { id: 5, name: 'Flash Cycling', time: '20:00' },
+    { id: 5, name: 'End', time: '20:00' },
   ]
 
   function getFebDates(year) {
@@ -104,6 +107,12 @@ const Measures = () => {
             />
           ))}
         </ScrollView>
+
+        {/* {selectedDay && ( // Muestra el texto solo si hay un día seleccionado
+        <Text style={{ ...Styles.text, fontSize: 16, marginTop: 10 }}>
+          Día seleccionado: {selectedDay.number} - {getDayName(selectedDay.day)}
+        </Text>
+      )} */}
 
       </View>
       {/* Calories */}
@@ -188,7 +197,7 @@ const Measures = () => {
         <View style={{ height: '60%' }}>
           <FlatList
             data={data}
-            style={{ marginBottom: Platform.OS == 'ios' ? null : 40 }}
+            style={{ marginBottom: Platform.OS == 'ios' ? '32%' : '55%' }}
             renderItem={({ item }) => {
               return (
                 <GestureHandlerRootView>
