@@ -75,6 +75,11 @@ npm install @react-native-community/slider --save
 npm i react-native-chart-kit
 ```
 
+* Para trabajar con algunas fechas utilizamos [moment](https://github.com/moment/moment)
+```
+npm i moment
+```
+
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_

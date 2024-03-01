@@ -1,6 +1,7 @@
 import { View, Dimensions, Platform, Text, FlatList, ScrollView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 // Styles
 import Styles from '../components/Styles';
 // Components
@@ -13,14 +14,21 @@ const Measures = () => {
   const screenWidth = Dimensions.get('window').width;
   const screenHeight = Dimensions.get('window').height;
   const [isDayPressed, setIsDayPressed] = useState(false);
-  const [selectedDay, setSelectedDay] = useState(null); 
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [month, setMonth] = useState(moment().month()); 
+  const [currentYear, setCurrentYear] = useState(moment().year()); 
 
   const handleDayPress = (index) => {
     setIsDayPressed(index); // Actualiza solo el índice del día presionado
-    setSelectedDay(febDates[index]);
-    console.log( getDayName(selectedDay.day),':',selectedDay.number);
+    setSelectedDay(getDates(month)[index]);
+    // console.log( getDayName(selectedDay.day),':',selectedDay.number);
     // console.log(Día seleccionado: ${selectedDay.number} - ${getDayName(selectedDay.day)}'');
   };
+
+  useEffect(() => {
+    const todayIndex = getDates(month).findIndex((day) => day.number === new Date().getDate());
+    setIsDayPressed(todayIndex);
+  }, []);
 
   // Juntar toda la data en 1 solo o 2 const
   const dataCal = {
@@ -55,16 +63,17 @@ const Measures = () => {
     { id: 5, name: 'End', time: '20:00' },
   ]
 
-  function getFebDates(year) {
-    const startDate = new Date(year, 1, 1); // Fecha de inicio: 1 de Febrero
-    const endDate = new Date(year, 2, 0); // Fecha final: Último día de Febrero (se usa el mes 2 y día 0 para obtener el último día del mes anterior)
+  function getDates(month) {
+    const year = 2024; // Cambiar el año según sea necesario
+    const startDate = new Date(year, month, 1); // Adjusted based on month
+    const endDate = new Date(year, month + 1, 0); // Get last day of next month
+
     const days = [];
 
-    // Recorrer cada día entre la fecha de inicio y la fecha final
     for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
       days.push({
-        day: date.getDay(), // Obtener el número del día (0-6)
-        number: date.getDate(), // Obtener el día del mes (1-31)
+        day: date.getDay(),
+        number: date.getDate(),
       });
     }
 
@@ -76,17 +85,30 @@ const Measures = () => {
     return days[dayNumber];
   }
 
-  const year = 2024; // Cambiar el año según sea necesario
-  const febDates = getFebDates(year);
+  const handleNextMonth = () => {
+    // Check for overflow (December) and reset to January
+    setMonth((month + 1) % 12);
+    if (month === 11) {
+      setCurrentYear(currentYear + 1);
+    };
+  };
+
+  const handlePreviousMonth = () => {
+    // Check for overflow (December) and reset to January
+    setMonth((month - 1) % 12);
+    if (month === 0) {
+      setCurrentYear(currentYear-1);
+    }
+  };
 
   return (
     <View style={Styles.container}>
       {/* Days */}
       <View style={{ backgroundColor: '#2C2C2E', height: Platform.OS === 'ios' ? '25%' : '30%', justifyContent: 'center', alignItems: 'center', borderBottomRightRadius: 26, borderBottomLeftRadius: 26 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%', alignItems: 'center', marginTop: 60 }}>
-          <BackBtn style={{ position: 'relative', left: 0 }} onPress={console.log('Apachurrao')} />
-          <Text style={{ ...Styles.text, fontSize: 20 }}>October 2021</Text>
-          <BackBtn style={{ position: 'relative', left: 0, transform: [{ rotate: '180deg' }], }} onPress={console.log('Apachurrao')} />
+          <BackBtn style={{ position: 'relative', left: 0 }} onPress={()=>handlePreviousMonth()} />
+          <Text style={{ ...Styles.text, fontSize: 20 }}>{new Date(currentYear, month, 1).toLocaleDateString('en-US', { month: 'long' })} {currentYear}</Text>
+          <BackBtn style={{ position: 'relative', left: 0, transform: [{ rotate: '180deg' }], }} onPress={()=>handleNextMonth()} />
         </View>
 
         <ScrollView 
@@ -97,7 +119,7 @@ const Measures = () => {
             width:'90%',
             marginTop: 20, 
             marginBottom: 15}}>
-          {febDates.map((day, index) => (
+          {getDates(month).map((day, index) => (
             <Day
               key={day.number}
               isSelected={index === isDayPressed}
@@ -215,3 +237,109 @@ const Measures = () => {
 }
 
 export default Measures
+
+
+// import { View, Dimensions, Platform} from 'react-native';
+// import React, { useState, useEffect } from 'react';
+// // Styles
+// import Styles from '../components/Styles';
+// // Components
+// import Measure from '../components/Measure';
+
+// const Measures = () => {
+//   const screenWidth = Dimensions.get('window').width;
+//   const screenHeight = Dimensions.get('window').height;
+
+//   const dataCal = {
+//     labels: ["Calories"],
+//     data: [0.8],
+//     amount: 652
+//   };
+
+//   const data = [
+//     { id: 1, name: 'Stability Training', time: '10:00', labels:["Steps"], data:[0.6], amount:[6540] },
+//     { id: 2, name: 'Flash Cycling', time: '20:00', labels:["Time"], data:[0.4], amount:[45] },
+//     { id: 3, name: 'Running', time: '20:00', labels:["Heart"], data:[0.7], amount:[72] },
+//     { id: 4, name: 'Stability Training', time: '10:00' },
+//     { id: 5, name: 'End', time: '20:00' },
+//   ]
+//   return (
+//     <View style={Styles.container}>
+//       {/* Calories */}
+//       <View style={{height:'20%'}}>
+//         <Measure
+//           data={dataCal}
+//           screenWidth={screenWidth}
+//           screenHeight={screenHeight / 3}
+//           strokeWidth={5}
+//           radius={90}
+//           section={1}
+//           strokeColor='255, 255, 255'
+//           top={Platform.OS === 'ios' ? '115%' : '90%'}
+//           text={'Active Calories'}
+//           amount={`${dataCal.amount} Cal`}
+//           textPosition={Platform.OS === 'ios' ? '110%' : '80%'}
+//           subTextPosition={Platform.OS === 'ios' ? '60%' : '20%'}
+//         />
+//       </View>
+//       {/* AnotherMeasures */}
+//       <View style={{ flexDirection: 'row', marginTop: Platform.OS == 'ios' ? '25%' : '32%', height: '10%' }}>
+//         {/* Steps */}
+//         <View>
+//           <Measure
+//             data={dataSteps}
+//             screenWidth={screenWidth / 3}
+//             screenHeight={screenHeight / 3}
+//             strokeWidth={5}
+//             radius={55}
+//             section={3}
+//             strokeColor='208, 253, 62'
+//             top={Platform.OS === 'ios' ? '20%' : '-10%'}
+//             textPosition={Platform.OS === 'ios' ? '-20%' : '-50%'}
+//             subTextPosition={Platform.OS === 'ios' ? '-20%' : '-55%'}
+//             text='Steps'
+//             amount={dataSteps.amount}
+//           />
+//         </View>
+
+//         {/* Time */}
+//         <View>
+//           <Measure
+//             data={dataTime}
+//             screenWidth={screenWidth / 3}
+//             screenHeight={screenHeight / 3}
+//             strokeWidth={5}
+//             radius={55}
+//             section={3}
+//             strokeColor='255, 36, 36'
+//             top={Platform.OS === 'ios' ? '20%' : '-10%'}
+//             textPosition={Platform.OS === 'ios' ? '-20%' : '-50%'}
+//             subTextPosition={Platform.OS === 'ios' ? '-20%' : '-50%'}
+//             text='Minutes'
+//             amount={dataTime.amount}
+//           />
+//         </View>
+
+//         {/* HeartRate */}
+//         <View>
+//           <Measure
+//             data={dataHeart}
+//             screenWidth={screenWidth / 3}
+//             screenHeight={screenHeight / 3}
+//             strokeWidth={5}
+//             radius={55}
+//             section={3}
+//             strokeColor='231, 147, 50'
+//             top={Platform.OS === 'ios' ? '20%' : '-10%'}
+//             textPosition={Platform.OS === 'ios' ? '-20%' : '-50%'}
+//             subTextPosition={Platform.OS === 'ios' ? '-20%' : '-50%'}
+//             text='BPM'
+//             amount={dataHeart.amount}
+//           />
+//         </View>
+//       </View>
+//     </View>
+//   )
+// }
+
+// export default Measures
